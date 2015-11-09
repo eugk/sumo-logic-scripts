@@ -10,15 +10,14 @@ API_URL = 'https://api.us2.sumologic.com/api/v1/collectors'
 
 USER = os.environ['SL_ACCESSID']
 PASS = os.environ['SL_ACCESSKEY']
-sources_file = sys.argv[1]
 
-def post_source(collector_id):
-    with open(sources_file) as json_file:
-        json_data = json.load(json_file)
-        for source in json_data['sources']:
-            source_json = json.dumps(source)
-            r = requests.post(API_URL + '/' + collector_id + '/sources', data=source_json, auth=(USER, PASS), headers={'content-type': 'application/json'}, verify=True)
-            r.raise_for_status()
+def remove_sources(collector_id):
+    r = requests.get(API_URL + '/' + collector_id + '/sources', auth=(USER, PASS), verify=True).json()
+    sources = r['sources']
+    for s in sources:
+        print 'Removing source named ' + s['name']
+        r2 = requests.delete(API_URL + '/' + collector_id + '/sources/' + str(s['id']), auth=(USER, PASS), verify=True)
+        r2.raise_for_status()
 
 r = requests.get(API_URL, auth=(USER, PASS), verify=True)
 r.raise_for_status()
@@ -26,7 +25,7 @@ collectors = r.json()
 for collector in collectors['collectors']:
     collector_name = str(collector['name'])
     if '_aws_' in collector_name: continue
-    print 'Adding sources to ' + collector_name
+    print('Removing sources from ' + collector_name)
     collector_id = str(collector['id'])
-    post_source(collector_id)
+    remove_sources(collector_id)
 
