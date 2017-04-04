@@ -26,6 +26,7 @@ collectors = r.json()
 for collector in collectors['collectors']:
     collector_name = str(collector['name'])
     if '_aws_' in collector_name: continue
+    if 'a0-' not in collector_name: continue
     print 'Adding sources to ' + collector_name
     collector_id = str(collector['id'])
     post_source(collector_id)

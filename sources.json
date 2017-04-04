@@ -1,0 +1,82 @@
+{
+    "sources": [
+        {
+            "source": {
+                "automaticDateParsing": true,
+                "category": "linux_auth_logs",
+                "forceTimeZone": false,
+                "multilineProcessingEnabled": false,
+                "name": "linux_auth_logs",
+                "pathExpression": "/var/log/auth.log",
+                "sourceType": "LocalFile",
+                "timeZone": "UTC",
+                "useAutolineMatching": true
+            }
+        },
+        {
+            "source": {
+                "automaticDateParsing": true,
+                "category": "linux_auth_logs",
+                "forceTimeZone": false,
+                "multilineProcessingEnabled": false,
+                "name": "linux_secure_logs",
+                "pathExpression": "/var/log/secure",
+                "sourceType": "LocalFile",
+                "timeZone": "UTC",
+                "useAutolineMatching": true
+            }
+        },
+        {
+            "source": {
+                "automaticDateParsing": true,
+                "category": "linux_package_logs",
+                "forceTimeZone": false,
+                "multilineProcessingEnabled": false,
+                "name": "linux_apt_logs",
+                "pathExpression": "/var/log/apt/history.log",
+                "sourceType": "LocalFile",
+                "timeZone": "UTC",
+                "useAutolineMatching": true
+            }
+        },
+        {
+            "source": {
+                "automaticDateParsing": true,
+                "category": "linux_package_logs",
+                "forceTimeZone": false,
+                "multilineProcessingEnabled": false,
+                "name": "linux_dpkg_logs",
+                "pathExpression": "/var/log/dpkg.log",
+                "sourceType": "LocalFile",
+                "timeZone": "UTC",
+                "useAutolineMatching": true
+            }
+        },
+        {
+            "source": {
+                "automaticDateParsing": true,
+                "category": "linux_package_logs",
+                "forceTimeZone": false,
+                "multilineProcessingEnabled": false,
+                "name": "linux_yum_logs",
+                "pathExpression": "/var/log/yum.log",
+                "sourceType": "LocalFile",
+                "timeZone": "UTC",
+                "useAutolineMatching": true
+            }
+        },
+        {
+            "source": {
+                "automaticDateParsing": true,
+                "category": "linux_service_logs",
+                "forceTimeZone": false,
+                "multilineProcessingEnabled": false,
+                "name": "linux_syslog_logs",
+                "pathExpression": "/var/log/syslog.log",
+                "sourceType": "LocalFile",
+                "timeZone": "UTC",
+                "useAutolineMatching": true
+            }
+        }
+    ]
+}

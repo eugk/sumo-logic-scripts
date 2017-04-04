@@ -1,0 +1,17 @@
+{
+    "sources": [
+        {
+            "source": {
+                "name": "linux_secure_logs",
+                "sourceType": "LocalFile",
+                "automaticDateParsing": true,
+                "multilineProcessingEnabled": false,
+                "useAutolineMatching": true,
+                "forceTimeZone": false,
+                "timeZone": "UTC",
+                "category": "linux_auth_logs",
+                "pathExpression": "/var/log/secure.log"
+            }
+        }
+   ]
+}
